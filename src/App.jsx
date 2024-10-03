@@ -81,13 +81,13 @@ function App() {
     useEffect(() => {
         fetchProposals();
 
-        // readOnlyProvider.on("ProposalCreated", handleProposalCreated);
-        // readOnlyProvider.on("Voted", handleVoted);
+        readOnlyProvider.on("ProposalCreated", handleProposalCreated);
+        readOnlyProvider.on("Voted", handleVoted);
 
-        // return () => {
-        //     readOnlyProvider.off("ProposalCreated", handleProposalCreated);
-        //     readOnlyProvider.off("Voted", handleVoted);
-        // }
+        return () => {
+            readOnlyProvider.off("ProposalCreated", handleProposalCreated);
+            readOnlyProvider.off("Voted", handleVoted);
+        }
     }, [fetchProposals]);
 
     return (
